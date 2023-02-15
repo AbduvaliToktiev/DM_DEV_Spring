@@ -1,20 +1,19 @@
 package com.example.dm_dev_spring.service;
 
-import com.example.dm_dev_spring.database.repository.CompanyRepository;
+import com.example.dm_dev_spring.database.entity.Company;
+import com.example.dm_dev_spring.database.repository.CrudRepository;
 import com.example.dm_dev_spring.database.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class UserService {
 
-    @Autowired
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
+    private final CrudRepository<Integer, Company> companyRepository;
 
-    @Autowired
-    private CompanyRepository companyRepository;
-
-    private CompanyService companyService;
-
-    public void setCompanyService(CompanyService companyService) {
-        this.companyService = companyService;
+    public UserService(UserRepository userRepository,
+                       CrudRepository<Integer, Company> companyRepository) {
+        this.userRepository = userRepository;
+        this.companyRepository = companyRepository;
     }
 }

@@ -2,6 +2,7 @@ package com.example.dm_dev_spring.database.repository;
 
 import com.example.dm_dev_spring.database.pool.ConnectionPool;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Repository;
@@ -10,6 +11,9 @@ import org.springframework.stereotype.Repository;
 @Scope(BeanDefinition.SCOPE_PROTOTYPE)
 public class UserRepository {
 
-    @Autowired
-    private ConnectionPool connectionPool;
+    private final ConnectionPool connectionPool;
+
+    public UserRepository(@Qualifier("pool2") ConnectionPool connectionPool) {
+        this.connectionPool = connectionPool;
+    }
 }

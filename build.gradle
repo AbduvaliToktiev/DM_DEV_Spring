@@ -17,7 +17,7 @@ dependencies {
     implementation 'org.springframework:spring-context:6.0.3'
     // https://mvnrepository.com/artifact/jakarta.annotation/jakarta.annotation-api
     implementation group: 'jakarta.annotation', name: 'jakarta.annotation-api', version: '2.0.0'
-
+    implementation 'javax.inject:javax.inject:1'
     implementation 'org.springframework.boot:spring-boot-starter'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
